@@ -1,0 +1,3 @@
+.. doxygenindex::
+    :project: MyProject
+    :path: ./xml/namespaceparser_1_1YAML__parser.xml
