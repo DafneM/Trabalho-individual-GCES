@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lib-metabase-gces"
-version = "0.1.0"
+version = "0.1.1"
 description = "A library that helps developers visualize data made in the GCES course at UnB."
 authors = ["DafneM <moretti.dafne@gmail.com>"]
 license = "n"
