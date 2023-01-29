@@ -59,7 +59,7 @@ jobs:
         
     - name: Install sphinx, doxygen and breathe
       run: |
-        apt install doxygen
+        sudo apt install doxygen
         pip install breathe
         pip install -U sphinx
       
