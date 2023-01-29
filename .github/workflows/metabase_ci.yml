@@ -100,12 +100,22 @@ jobs:
     - name: Upgrade pip
       run: pip install --upgrade pip
     
-    - name: Build and publish to private Python package repository
-      uses: JRubics/poetry-publish@v1.16
+          
+    - name: Install python and pip
+      uses: actions/setup-python@v4
       with:
-        python_version: "3.8.12"
-        repository_name: lib-metabase-gces
-        repository_username: ${{ secrets.PYPI_USER }}
-        repository_password: ${{ secrets.PYPI_PASSWORD }}
-    
+        python-version: '3.8.12'
+          
+    - name: Install poetry
+      run: |
+        python -m pip install --upgrade pip
+        pip install poetry
+        poetry install
+        
+    - name: Config poetry
+      run: poetry config http-basic.pypi ${{ secrets.PYPI_USER }} ${{ secrets.PYPI_PASSWORD }}
 
+    - name: Poetry build and publish
+      run: |
+        poetry build
+        poetry publish
