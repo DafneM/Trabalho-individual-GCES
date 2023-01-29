@@ -67,10 +67,8 @@ jobs:
       run: doxygen Doxyfile
     
     - name: Run sphinx
-    - uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docs/"
-        build-command: "make html"
+      working-directory: ./docs
+      run: make html
       
       
 
