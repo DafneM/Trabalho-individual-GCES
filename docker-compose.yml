@@ -10,14 +10,36 @@ services:
       MONGO_INITDB_ROOT_USERNAME: lappis
       MONGO_INITDB_ROOT_PASSWORD: lappis
 
+  postgresql:
+    image: postgres
+    container_name: db_postgres
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - metabase/config/postgres_exemple.env
+    volumes: 
+      - .:/data
+    # depends_on:
+    #   - db_mongo
+
+  metabase:
+    image: metabase/metabase
+    ports:
+      - '3000:3000'
+    env_file:
+      - metabase/config/metabase_database_exemple.env
+    depends_on: 
+      - postgresql
+
   app:
     build: .
     container_name: python_app
     volumes: 
       - .:/data
-    ports:
-      - '3000:3000'
     depends_on:
       - db-mongo
+
+    
 
 
