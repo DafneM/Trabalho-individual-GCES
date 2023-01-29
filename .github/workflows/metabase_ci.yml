@@ -90,6 +90,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+          
+    - name: Install python and pip
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8.12'
+        cache: pip
+    
     - name: Build and publish to private Python package repository
       uses: JRubics/poetry-publish@v1.16
       with:
