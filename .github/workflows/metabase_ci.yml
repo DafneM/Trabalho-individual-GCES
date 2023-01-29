@@ -62,6 +62,10 @@ jobs:
         sudo apt install doxygen
         pip install breathe
         pip install -U sphinx
+        
+    - name: Run doxygen
+    - uses: actions/checkout@v3
+    - uses: mattnotmitt/doxygen-action@v1.9.5
       
       
 
