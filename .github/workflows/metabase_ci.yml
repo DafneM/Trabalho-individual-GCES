@@ -82,4 +82,21 @@ jobs:
     - name: Run sphinx
       working-directory: ./docs
       run: make html
+      
+  deploy:
+    needs: [build, test, docs]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Build poetry
+      run: poetry build
+
+    - name: Build and publish to private Python package repository
+      uses: JRubics/poetry-publish@v1.16
+      with:
+        repository_name: lib-metabase-gces
+        repository_url: "https://pypi.org/project/lib-metabase-gces/"
+        repository_username: ${{ secrets.PYPI_USER }}
+        repository_password: ${{ secrets.PYPI_PASSWORD }}
+    
 
