@@ -43,5 +43,26 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --cov
+        
+  
+  docs:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install python and pip
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8.12'
+        
+    - name: Install sphinx, doxygen and breathe
+      run: |
+        apt install doxygen
+        pip install breathe
+        pip install -U sphinx
+      
+      
 
 
