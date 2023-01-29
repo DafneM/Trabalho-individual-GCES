@@ -105,7 +105,6 @@ jobs:
       with:
         python_version: "3.8.12"
         repository_name: lib-metabase-gces
-        repository_url: "https://pypi.org/project/lib-metabase-gces/"
         repository_username: ${{ secrets.PYPI_USER }}
         repository_password: ${{ secrets.PYPI_PASSWORD }}
     
