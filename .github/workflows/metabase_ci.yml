@@ -32,7 +32,7 @@ jobs:
         cache: 'pip' 
         
     - name: Install and run pytest
-      run: |
+    - run: |
         pip install pytest
         pytest --cov
 
