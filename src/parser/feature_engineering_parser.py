@@ -1,6 +1,7 @@
 from parser.parser_base import ParserBase
 
 class FeatureEngineeringParser(ParserBase):
+    """The class FeatureEngineeringParser contains methods for parsing and interpreting feature engineering configurations in input data."""
 
     def parse(self, data: list):
         return self._parse_feature_engineering_configs(data)

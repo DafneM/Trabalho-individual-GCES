@@ -1,8 +1,10 @@
 from parser.parser_base import ParserBase
 from parser.const import model_type
 
+
 class ModelParser(ParserBase):
-    
+    """ModelParser is used to parse and interpret model configuration data."""
+
     def __init__(self, columns_alias):
         self.columns_alias = columns_alias
         self.default_keyboard_smash_values = {

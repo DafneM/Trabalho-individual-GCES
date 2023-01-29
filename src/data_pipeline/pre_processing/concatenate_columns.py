@@ -1,6 +1,8 @@
 from pandas import DataFrame
 
 def get_concatenated_column(csv, columns, column_name):
+    """ get_concatenated_column aims to concatenate the columns of a CSV file (csv) """
+
     if(type(columns) == str):
         csv[column_name] = csv[columns]
         return DataFrame(csv[column_name])

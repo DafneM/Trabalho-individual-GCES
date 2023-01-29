@@ -3,6 +3,7 @@ import yaml
 from parser.parser_base import ParserBase
 
 class YAMLParser(ParserBase):
+    """The class opens a file specified by the filepath attribute of the class, loads the contents of that file as a dictionary, extracts information from that dictionary to return a final dictionary"""
 
     def parse(self):
         return self._parse_yaml()
