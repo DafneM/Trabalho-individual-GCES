@@ -9,11 +9,16 @@ on:
 jobs:
 
   build:
-
+    
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Update toml
+        run: |
+          version=$(date+)
+          sed -i "s/^version.*/version = \"$version\"/" pyproject.toml
       
       - name: Install python and pip
         uses: actions/setup-python@v4
