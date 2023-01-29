@@ -1,5 +1,11 @@
 import pytest
-from SEU__MODULO.parser.parser_base import ParserBase
+
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath('../src'))
+
+from src.parser.parser_base import ParserBase
 
 @pytest.fixture
 def parser():
