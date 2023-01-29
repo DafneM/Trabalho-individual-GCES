@@ -1,0 +1,27 @@
+name: metabase - Integracao Continua
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install python and pip
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.8.12'
+        cache: 'pip' 
+        
+    - name: Container up
+    - run: docker-compose up
+        
+        
+        
