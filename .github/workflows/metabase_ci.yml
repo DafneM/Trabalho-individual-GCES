@@ -86,11 +86,8 @@ jobs:
   deploy:
     needs: [build, test, docs]
     runs-on: ubuntu-latest
-    
+ 
     steps:
-    - name: Build poetry
-      run: poetry build
-
     - name: Build and publish to private Python package repository
       uses: JRubics/poetry-publish@v1.16
       with:
